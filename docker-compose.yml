@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    image: nexus.sefaz.ba.gov.br:8043/repository/docker/johnsondso:latest
+    ports:
+      - "8000:8000"
+    environment:
+      KEYCLOAK_SERVER_URL: "http://sso.sefaz.ba.gov.br:8080/auth"
+      KEYCLOAK_CLIENT_ID: "JohnsonDSO"
+      KEYCLOAK_REALM: "saml"
+      KEYCLOAK_CLIENT_SECRET: "uBi3G2jl4XMzkWamrJuV9prl9GjT84Wq"
+    extra_hosts:
+      - "registry-1.docker.io:127.0.0.1"
